@@ -1,6 +1,6 @@
 package com.javapractice;
 
-public interface ITelephone
+public interface ITelephone {
     void powerOn();
     void dial(int phoneNumber);
     void answer();

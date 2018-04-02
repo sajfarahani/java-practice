@@ -31,8 +31,10 @@ public class DeskPhone implements ITelephone {
         if(phoneNumber == myNumber){
             isRinging = true;
             System.out.println("Ring, ring");
+        } else {
+            isRinging = false;
         }
-        return false;
+        return isRinging;
     }
 
     @Override
