@@ -21,14 +21,20 @@ public class MapProgram {
 
         System.out.println("========================================");
 
-        languages.remove("Lisp");
         if(languages.remove("Algo", "an algo language")){
             System.out.println("Algo removed");
         } else {
             System.out.println("Algo not removed, key/value pair not found");
         }
 
-        
+        if (languages.replace("Lisp","This will not work", "a func language")) {
+            System.out.println("Lisp replaced");
+        } else{
+            System.out.println("Lisp is not replaced");
+        }
+
+//        System.out.println(languages.replace("Scale", "This will not be added"));
+
         for(String key: languages.keySet()){
             System.out.println(key + " : " + languages.get(key));
         }
