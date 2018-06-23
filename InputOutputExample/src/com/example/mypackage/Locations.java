@@ -10,8 +10,8 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new HashMap<Integer, Location>();
 
     public static void main(String[] args)throws IOException {
-        try(FileWriter localfile = new FileWriter("locations.txt");
-            FileWriter dirFile = new FileWriter("directions.txt")) {
+        try(FileWriter localfile = new FileWriter("locations_big.txt");
+            FileWriter dirFile = new FileWriter("directions_big.txt")) {
             for(Location location: locations.values()){
                 localfile.write(location.getLocationID() + "," + location.getDescription()+"\n");
                 for(String direction: location.getExits().keySet()){
@@ -38,7 +38,7 @@ public class Locations implements Map<Integer, Location> {
     static {
         Scanner scanner = null;
         try{
-            scanner = new Scanner(new FileReader("locations.txt"));
+            scanner = new Scanner(new FileReader("locations_big.txt"));
             scanner.useDelimiter(",");
             while(scanner.hasNextLine()){
                 int loc = scanner.nextInt();
@@ -59,7 +59,7 @@ public class Locations implements Map<Integer, Location> {
 
         // Now read the exits
         try {
-            scanner = new Scanner(new BufferedReader(new FileReader("directions.txt")));
+            scanner = new Scanner(new BufferedReader(new FileReader("directions_big.txt")));
             scanner.useDelimiter(",");
             while(scanner.hasNextLine()) {
 //                int loc = scanner.nextInt();
