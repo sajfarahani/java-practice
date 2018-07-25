@@ -3,7 +3,10 @@ package com.example.mypackage;
 import javax.xml.bind.SchemaOutputResolver;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
 
@@ -31,8 +34,25 @@ public class Main {
                 return employee.getAge()< 25;
             }
         });
-//        System.out.println("\nEmployees 30 and younger");
-//        System.out.println("==============================");
+
+        IntPredicate greaterThan15 = i -> i>15;
+        IntPredicate lessThan100 = i -> i>15;
+
+        System.out.println(greaterThan15.test(10));
+
+        int a = 20;
+        System.out.println(greaterThan15.test(a+5));
+
+        System.out.println(greaterThan15.and(lessThan100).test(50));
+
+        Random random = new Random();
+        Supplier<Integer> randomSupplier = () -> random.nextInt(1000);
+        for(int i=0; i<10; i++){
+            System.out.println(randomSupplier.get());
+        }
+
+
+
     }
 
     private static void printEmployeesByAge(List<Employee> employees,
