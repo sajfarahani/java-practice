@@ -25,9 +25,14 @@ public class Main {
 
         printEmployeesByAge(employees, "Employees over 30", employee -> employee.getAge() >30);
         printEmployeesByAge(employees, "Employees 30 and under", employee -> employee.getAge() <= 30);
-
-        System.out.println("\nEmployees 30 and younger");
-        System.out.println("==============================");
+        printEmployeesByAge(employees, "\nEmployees younger than 25", new Predicate<Employee>() {
+            @Override
+            public boolean test(Employee employee) {
+                return employee.getAge()< 25;
+            }
+        });
+//        System.out.println("\nEmployees 30 and younger");
+//        System.out.println("==============================");
     }
 
     private static void printEmployeesByAge(List<Employee> employees,
